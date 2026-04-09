@@ -158,6 +158,8 @@ Full details with code references: `docs/THREAT_MODEL.md`.
 ---
 <img width="1914" height="875" alt="{0436F2C3-82DA-4E1A-ACD5-1240EA13C8FF}" src="https://github.com/user-attachments/assets/06bd05a0-6d05-452a-bfb9-b0d9185ac4a5" />
 
+<img width="1911" height="891" alt="{1820E5BD-65F9-4DB6-ADEE-7E7CC555D31E}" src="https://github.com/user-attachments/assets/b9654941-fba0-4cc0-b171-ad1ea69e9d56" />
+
 ## Narrative
 Argos had a hundred eyes. Some slept while others watched. He was eventually
 killed by Hermes, the messenger and patron of thieves, who told him a long
