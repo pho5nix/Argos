@@ -2,16 +2,16 @@
 
 **Argos is an open-source Alert Investigation Copilot for financial crime teams.**
 It sits between your existing transaction-monitoring system and your case
-management tool, dispositions false positives in minutes instead of days, and
-drafts regulator-ready SAR narratives with cited evidence — entirely self-hosted,
+management tool, dispositions false positives in minutes instead of days and
+drafts regulator-ready SAR narratives with cited evidence, entirely self-hosted,
 entirely inspectable.
 
 Argos is deliberately narrow. It does one thing: it turns a flagged alert into a
-structured investigation with a disposition recommendation and a draft narrative,
+structured investigation with a disposition recommendation and a draft narrative
 and it hands the result to a human analyst. It does not make autonomous
-decisions, it does not touch the authorization path, and it does not add new
+decisions, it does not touch the authorization path and it does not add new
 fraud detection rules to your stack. It removes the four-day manual
-investigation bottleneck — that's the entire product.
+investigation bottleneck. That's the entire product.
 
 ---
 
@@ -33,9 +33,9 @@ cases that actually need human judgment.
 
 If Argos does not move these three numbers in your pilot, it has failed:
 
-1. **Cost per alert** — target: $15–$40 (from the industry baseline of $500–$1,500)
-2. **Time to disposition** — target: under 30 min for escalations, under 2 min for dismissals (from ~4 days)
-3. **Time to SAR filing** — target: within the 30-day statutory ceiling (from the 166-day average)
+1. **Cost per alert** - target: $15–$40 (from the industry baseline of $500–$1,500)
+2. **Time to disposition** - target: under 30 min for escalations, under 2 min for dismissals (from ~4 days)
+3. **Time to SAR filing** - target: within the 30-day statutory ceiling (from the 166-day average)
 
 ---
 
@@ -58,7 +58,7 @@ left pane to watch the investigation graph execute in real time.
 On the first run, Docker Compose will pull the Ollama image and download the
 `qwen2.5:7b-instruct` model (~4.4GB). Subsequent runs are instant. If you don't
 have Ollama/GPU capacity, the demo falls back to pre-computed dispositions so
-the UI still works — clearly labeled as fallback mode.
+the UI still works, clearly labeled as fallback mode.
 
 For production (vLLM + Qwen 2.5 32B on a real GPU), see `docs/ARCHITECTURE.md`.
 
@@ -86,7 +86,7 @@ intake → sanctions_check → behavioral_delta → package_evidence → reason 
 
 The **reason** node is the only node that calls an LLM. It has no tool access,
 no network access, no memory beyond the current investigation. It reads a
-structured evidence package and produces a structured disposition — nothing
+structured evidence package and produces a structured disposition, nothing
 else. Everything else is deterministic Python you can read in an afternoon.
 
 ## The trust play
@@ -94,15 +94,15 @@ else. Everything else is deterministic Python you can read in an afternoon.
 This repository is the same code a bank would deploy inside their VPC. There is
 no hidden commercial version with different behavior. The open-source core is
 Apache 2.0 and the commercial offering (if any) is limited to support,
-enterprise connectors, and managed deployments.
+enterprise connectors and managed deployments.
 
 **Read the threat model before the code.** It is at `docs/THREAT_MODEL.md` and
 it maps every one of the OWASP Top 10 for Agentic Applications 2026 risks to a
 concrete architectural mitigation with line-number references. If you find a
-gap, open an issue — that's exactly the kind of review we're asking for.
+gap, open an issue, that's exactly the kind of review asking for.
 
 **Try to break the reasoning node.** The `redteam/` directory contains our
-standing corpus of prompt-injection payloads (the "Hermes Test" — named after
+standing corpus of prompt-injection payloads (the "Hermes Test", named after
 the trickster who killed Argos in the myth by lulling him to sleep with a
 story). Run it with `make hermes`. Submit new payloads via pull request.
 
@@ -127,18 +127,33 @@ See `docs/ROADMAP.md` for what's next.
 
 | OWASP ASI Top 10 2026 Risk           | Argos Mitigation                                    |
 |--------------------------------------|-----------------------------------------------------|
-| ASI01 Goal Hijack                    | LLM sees only structured evidence, no raw memos    |
-| ASI02 Tool Misuse                    | Reasoning node has zero tool access                |
-| ASI03 Memory Poisoning               | Per-investigation state, discarded on exit        |
-| ASI04 Privilege Compromise           | Scoped short-lived credentials per node           |
-| ASI05 Cascading Hallucination        | XGrammar constrained decoding + Instructor retry   |
-| ASI06 Supply Chain                   | Pinned deps, SBOM generated, signed releases       |
-| ASI07 Insecure Inter-Agent Comms     | N/A — single-agent architecture by design          |
-| ASI08 Cascading Failures             | Kill switch + circuit breakers, per-case isolation |
+| ASI01 Goal Hijack                    | LLM sees only structured evidence, no raw memos     |
+| ASI02 Tool Misuse                    | Reasoning node has zero tool access                 |
+| ASI03 Memory Poisoning               | Per-investigation state, discarded on exit          |
+| ASI04 Privilege Compromise           | Scoped short-lived credentials per node             |
+| ASI05 Cascading Hallucination        | XGrammar constrained decoding + Instructor retry    |
+| ASI06 Supply Chain                   | Pinned deps, SBOM generated, signed releases        |
+| ASI07 Insecure Inter-Agent Comms     | N/A — single-agent architecture by design           |
+| ASI08 Cascading Failures             | Kill switch + circuit breakers, per-case isolation  |
 | ASI09 Human-Agent Trust Exploitation | Every claim cites evidence field; unsupported claims flagged in UI |
-| ASI10 Rogue Agents                   | No autonomous actions, append-only audit trail     |
+| ASI10 Rogue Agents                   | No autonomous actions, append-only audit trail      |
 
 Full details with code references: `docs/THREAT_MODEL.md`.
+
+## Dashboard and Alerts
+
+**Velocity Anomaly**
+---
+<img width="1903" height="872" alt="{8B8201FD-47B6-4C3F-906F-85BC28EC09DE}" src="https://github.com/user-attachments/assets/8fc10978-0599-477e-834b-3b512d22af17" />
+
+**Possibe Structuring**
+---
+<img width="1911" height="867" alt="{C83EFD8F-537B-45FE-BCCF-BF0658C5F4BB}" src="https://github.com/user-attachments/assets/65348cc5-1839-482f-8e59-5b5b2dee4ff5" />
+
+**Prompt Injection in Alert**
+---
+<img width="1914" height="875" alt="{0436F2C3-82DA-4E1A-ACD5-1240EA13C8FF}" src="https://github.com/user-attachments/assets/06bd05a0-6d05-452a-bfb9-b0d9185ac4a5" />
+
 
 ## Contributing
 
@@ -155,5 +170,5 @@ Apache 2.0. See `LICENSE`.
 *Argos had a hundred eyes. Some slept while others watched. He was eventually
 killed by Hermes, the messenger and patron of thieves, who told him a long
 story until every eye closed. The entire security architecture of this project
-assumes attackers will try exactly that trick — which is why the reasoning node
+assumes attackers will try exactly that trick, which is why the reasoning node
 cannot act on anything it reads, only reason about it.*
