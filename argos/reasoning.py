@@ -138,13 +138,44 @@ class OllamaBackend:
 _PATH_RE = re.compile(r"^[a-z_][a-z_0-9\[\]\*]*(\.[a-z_0-9\[\]\*]+)*$")
 
 
+# Common short-forms that small models use instead of the full path.
+_PATH_REWRITES = {
+    "transaction": "alert.transaction",
+    "transaction_id": "alert.transaction.transaction_id",
+    "amount": "alert.transaction.amount",
+    "currency": "alert.transaction.currency",
+    "beneficiary_account": "alert.transaction.beneficiary_account",
+    "beneficiary_name": "alert.transaction.beneficiary_name",
+    "originator_account": "alert.transaction.originator_account",
+    "counterparty_country": "alert.transaction.counterparty_country",
+    "memo": "alert.transaction.memo",
+    "channel": "alert.transaction.channel",
+    "rule_id": "alert.rule_id",
+    "rule_description": "alert.rule_description",
+    "alert_id": "alert.alert_id",
+    "customer_id": "alert.customer_id",
+    "score": "alert.score",
+    "source": "alert.source",
+    "fired_at": "alert.fired_at",
+}
+
+
+def _rewrite_common_shorthand(path: str) -> str:
+    """Rewrite small-model shorthand paths to canonical full paths."""
+    if path in _PATH_REWRITES:
+        return _PATH_REWRITES[path]
+    if path.startswith("transaction."):
+        return "alert." + path
+    return path
+
+
 def _normalize_llm_output(data: dict) -> dict:
     """Clean up common small-model output quirks before Pydantic validation.
 
     Qwen 2.5 7B sometimes produces evidence_path values that combine multiple
-    paths with "..." or commas, or wrap the whole path in outer brackets.
-    This function cleans those quirks and keeps the first path that matches
-    the expected regex. If nothing matches, the raw value is kept and Pydantic
+    paths with "..." or commas, wrap the whole path in outer brackets, or
+    drop the "alert." prefix on transaction fields. This function cleans
+    those quirks. If nothing matches, the raw value is kept and Pydantic
     will reject it the normal way.
     """
     if not isinstance(data, dict):
@@ -162,13 +193,14 @@ def _normalize_llm_output(data: dict) -> dict:
             cleaned = path.strip()
             if cleaned.startswith("[") and cleaned.endswith("]"):
                 inner = cleaned[1:-1]
-                # Only unwrap if inner still looks like a path.
                 if "." in inner or "_" in inner:
                     cleaned = inner
             # Split on ... or , and pick first path that matches.
             candidates = re.split(r"\.{2,}|,", cleaned)
             for cand in candidates:
                 cand = cand.strip()
+                # Apply shorthand rewrite.
+                cand = _rewrite_common_shorthand(cand)
                 if _PATH_RE.match(cand):
                     f["evidence_path"] = cand
                     break
@@ -285,7 +317,7 @@ class FallbackBackend:
             ],
             draft_narrative=None,
             analyst_notes=(
-                "Argos fallback mode active. The reasoning backend is offline. "
+                "⚠️ Argos fallback mode active. The reasoning backend is offline. "
                 "Review this case fully as if no AI assistance were available."
             ),
         )
