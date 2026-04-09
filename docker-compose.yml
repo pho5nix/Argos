@@ -1,0 +1,81 @@
+# docker-compose.yml
+#
+# Local demo stack for Argos. Brings up everything needed to run the
+# investigation graph against synthetic data with a single `docker compose up`.
+#
+# Services:
+#   ollama              — local LLM runtime hosting Qwen 2.5 7B for the demo
+#   presidio-analyzer   — PII detection
+#   presidio-anonymizer — PII pseudonymization
+#   argos               — the FastAPI demo app serving the UI on :8080
+#
+# For production deployments, this file is NOT the reference. Use a Helm chart
+# (v2 roadmap) and swap Ollama for vLLM with XGrammar constrained decoding.
+#
+# Security note: this stack is intended for local demo use only. No service is
+# exposed beyond localhost. Nothing here handles real customer data and nothing
+# here is hardened for internet exposure.
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: argos-ollama
+    ports:
+      - "127.0.0.1:11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    # Pull the reasoning model on first start.
+    # qwen2.5:7b-instruct is chosen for the demo because it runs on modest
+    # hardware and is Apache 2.0 licensed. Production uses Qwen 2.5 32B via vLLM.
+    entrypoint: >
+      sh -c "ollama serve &
+             sleep 3 &&
+             ollama pull qwen2.5:7b-instruct &&
+             wait"
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  presidio-analyzer:
+    image: mcr.microsoft.com/presidio-analyzer:latest
+    container_name: argos-presidio-analyzer
+    ports:
+      - "127.0.0.1:5002:3000"
+    restart: unless-stopped
+
+  presidio-anonymizer:
+    image: mcr.microsoft.com/presidio-anonymizer:latest
+    container_name: argos-presidio-anonymizer
+    ports:
+      - "127.0.0.1:5001:3000"
+    restart: unless-stopped
+
+  argos:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: argos-demo
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      - ARGOS_OLLAMA_URL=http://ollama:11434
+      - ARGOS_OLLAMA_MODEL=qwen2.5:7b-instruct
+      - ARGOS_PRESIDIO_ANALYZER_URL=http://presidio-analyzer:3000
+      - ARGOS_PRESIDIO_ANONYMIZER_URL=http://presidio-anonymizer:3000
+      - ARGOS_MODE=demo
+      - ARGOS_AUDIT_LOG_PATH=/data/audit.log
+    volumes:
+      - argos-data:/data
+    depends_on:
+      ollama:
+        condition: service_healthy
+      presidio-analyzer:
+        condition: service_started
+      presidio-anonymizer:
+        condition: service_started
+
+volumes:
+  ollama-data:
+  argos-data:
