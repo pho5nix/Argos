@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Argos — Alert Investigation Copilot (Demo)</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <span class="brand-mark">ARGOS</span>
+    <span class="brand-tagline">Alert Investigation Copilot · Demo</span>
+  </div>
+  <div class="header-links">
+    <span id="mode-banner" class="mode-banner">checking mode…</span>
+    <a href="https://github.com/pho5nix/argos" target="_blank" rel="noopener">Source</a>
+    <a href="https://github.com/pho5nix/argos/blob/main/docs/THREAT_MODEL.md" target="_blank" rel="noopener">Threat model</a>
+    <a href="https://github.com/pho5nix/argos/tree/main/redteam" target="_blank" rel="noopener">Try to break it</a>
+  </div>
+</header>
+
+<main class="layout">
+
+  <!-- LEFT: Alert list -->
+  <section class="pane pane-alerts">
+    <h2 class="pane-title">Alerts <span class="pane-subtitle">synthetic data</span></h2>
+    <ul id="alert-list" class="alert-list"></ul>
+    <p class="pane-footer">Click any alert to run the investigation graph.</p>
+  </section>
+
+  <!-- MIDDLE: Evidence package -->
+  <section class="pane pane-evidence">
+    <h2 class="pane-title">Evidence package <span class="pane-subtitle">what the LLM sees</span></h2>
+    <div id="evidence-empty" class="empty-state">
+      Select an alert from the left to begin.
+    </div>
+    <div id="evidence-loading" class="loading hidden">
+      <div class="spinner"></div>
+      <span id="loading-stage">Running graph…</span>
+    </div>
+    <div id="evidence-content" class="evidence-content hidden"></div>
+  </section>
+
+  <!-- RIGHT: Disposition + narrative -->
+  <section class="pane pane-recommendation">
+    <h2 class="pane-title">Recommendation <span class="pane-subtitle">review required</span></h2>
+    <div id="recommendation-empty" class="empty-state">
+      No recommendation yet.
+    </div>
+    <div id="recommendation-content" class="hidden">
+      <div id="disposition-badge" class="disposition-badge"></div>
+      <div class="confidence-row">
+        <span class="label">Confidence:</span>
+        <div class="confidence-bar"><div id="confidence-fill" class="confidence-fill"></div></div>
+        <span id="confidence-value" class="confidence-value"></span>
+      </div>
+
+      <section class="section">
+        <h3>Key findings</h3>
+        <ul id="findings-list" class="findings-list"></ul>
+      </section>
+
+      <section class="section">
+        <h3>Analyst notes</h3>
+        <p id="analyst-notes" class="analyst-notes"></p>
+      </section>
+
+      <section id="narrative-section" class="section hidden">
+        <h3>Draft SAR narrative (FinCEN format)</h3>
+        <pre id="draft-narrative" class="draft-narrative"></pre>
+      </section>
+
+      <section id="errors-section" class="section hidden">
+        <h3 class="error-heading">Errors</h3>
+        <ul id="errors-list" class="errors-list"></ul>
+      </section>
+
+      <div class="review-buttons">
+        <button class="btn btn-disabled" disabled title="Demo only — real deployments require analyst approval">
+          Accept (disabled in demo)
+        </button>
+        <button class="btn btn-disabled" disabled title="Demo only — real deployments require analyst approval">
+          Reject (disabled in demo)
+        </button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>
+    Argos is open-source under Apache 2.0. Everything this demo does (the investigation graph, the
+    reasoning prompt, the citation validator, the audit log) lives in the public repository.
+    The demo runs against synthetic FinCEN-typology data only.
+  </p>
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
