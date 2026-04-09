@@ -1,7 +1,6 @@
 # Argos
 
-<img width="628" height="457" alt="{BF9ECF84-80B2-4C05-80FB-5BD3DA762654}" src="https://github.com/user-attachments/assets/722e240a-91ff-405d-a24e-be87e900e808" />
-
+<img width="1376" height="768" alt="Argos_1" src="https://github.com/user-attachments/assets/3404d8c7-fb1f-4c0d-a8d2-f1b48c47fb27" />
 
 **Argos is an open-source Alert Investigation Copilot for financial crime teams.**
 It sits between your existing transaction-monitoring system and your case
