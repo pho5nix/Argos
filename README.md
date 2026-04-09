@@ -141,16 +141,17 @@ See `docs/ROADMAP.md` for what's next.
 Full details with code references: `docs/THREAT_MODEL.md`.
 
 ## Dashboard and Alerts
-
-**Velocity Anomaly**
 ---
+
+### Velocity Anomaly
+
 <img width="1903" height="872" alt="{8B8201FD-47B6-4C3F-906F-85BC28EC09DE}" src="https://github.com/user-attachments/assets/8fc10978-0599-477e-834b-3b512d22af17" />
 
-**Possibe Structuring**
+### Possibe Structuring
 ---
 <img width="1911" height="867" alt="{C83EFD8F-537B-45FE-BCCF-BF0658C5F4BB}" src="https://github.com/user-attachments/assets/65348cc5-1839-482f-8e59-5b5b2dee4ff5" />
 
-**Prompt Injection in Alert**
+### Prompt Injection in Alert
 ---
 <img width="1914" height="875" alt="{0436F2C3-82DA-4E1A-ACD5-1240EA13C8FF}" src="https://github.com/user-attachments/assets/06bd05a0-6d05-452a-bfb9-b0d9185ac4a5" />
 
