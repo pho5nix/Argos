@@ -158,6 +158,13 @@ Full details with code references: `docs/THREAT_MODEL.md`.
 ---
 <img width="1914" height="875" alt="{0436F2C3-82DA-4E1A-ACD5-1240EA13C8FF}" src="https://github.com/user-attachments/assets/06bd05a0-6d05-452a-bfb9-b0d9185ac4a5" />
 
+## Narrative
+Argos had a hundred eyes. Some slept while others watched. He was eventually
+killed by Hermes, the messenger and patron of thieves, who told him a long
+story until every eye closed. The entire security architecture of this project
+assumes attackers will try exactly that trick, which is why the reasoning node
+cannot act on anything it reads, only reason about it.
+
 
 ## Contributing
 
@@ -171,8 +178,3 @@ Apache 2.0. See `LICENSE`.
 
 ---
 
-*Argos had a hundred eyes. Some slept while others watched. He was eventually
-killed by Hermes, the messenger and patron of thieves, who told him a long
-story until every eye closed. The entire security architecture of this project
-assumes attackers will try exactly that trick, which is why the reasoning node
-cannot act on anything it reads, only reason about it.*
