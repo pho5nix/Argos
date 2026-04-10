@@ -136,7 +136,7 @@ See `docs/ROADMAP.md` for what's next.
 | ASI04 Privilege Compromise           | Scoped short-lived credentials per node             |
 | ASI05 Cascading Hallucination        | XGrammar constrained decoding + Instructor retry    |
 | ASI06 Supply Chain                   | Pinned deps, SBOM generated, signed releases        |
-| ASI07 Insecure Inter-Agent Comms     | N/A — single-agent architecture by design           |
+| ASI07 Insecure Inter-Agent Comms     | N/A, single-agent architecture by design           |
 | ASI08 Cascading Failures             | Kill switch + circuit breakers, per-case isolation  |
 | ASI09 Human-Agent Trust Exploitation | Every claim cites evidence field; unsupported claims flagged in UI |
 | ASI10 Rogue Agents                   | No autonomous actions, append-only audit trail      |
