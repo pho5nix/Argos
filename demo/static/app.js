@@ -37,10 +37,10 @@ async function refreshMode() {
     const data = await res.json();
     const banner = document.getElementById('mode-banner');
     if (data.fallback_mode) {
-      banner.textContent = 'FALLBACK MODE · LLM offline';
+      banner.textContent = 'LLM offline — fallback mode';
       banner.className = 'mode-banner fallback';
     } else {
-      banner.textContent = `mode: ${data.mode} · v${data.version}`;
+      banner.textContent = `${data.mode} build · v${data.version}`;
       banner.className = 'mode-banner ready';
     }
   } catch (e) {
@@ -122,7 +122,7 @@ function renderEvidence(pkg, sanctionsOverride) {
     const banner = document.createElement('div');
     banner.className = 'evidence-section';
     banner.innerHTML = `
-      <div class="evidence-section-header" style="color:#f85149">HARD SANCTIONS OVERRIDE</div>
+      <div class="evidence-section-header" style="color:var(--bad)">HARD SANCTIONS OVERRIDE</div>
       <div class="evidence-section-body">
         Primary sanctions hit detected. Reasoning LLM was bypassed entirely.
         Routed directly to human review.
