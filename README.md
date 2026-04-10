@@ -146,17 +146,18 @@ Full details with code references: `docs/THREAT_MODEL.md`.
 ## Dashboard and Alerts
 ---
 
-### Velocity Anomaly
-
-<img width="1903" height="872" alt="{8B8201FD-47B6-4C3F-906F-85BC28EC09DE}" src="https://github.com/user-attachments/assets/8fc10978-0599-477e-834b-3b512d22af17" />
-
 ### Possibe Structuring
 ---
-<img width="1911" height="867" alt="{C83EFD8F-537B-45FE-BCCF-BF0658C5F4BB}" src="https://github.com/user-attachments/assets/65348cc5-1839-482f-8e59-5b5b2dee4ff5" />
+<img width="1919" height="916" alt="{5C6F6AEE-0F8B-4999-9CA9-45CA8D0BD74B}" src="https://github.com/user-attachments/assets/6b0e1ad4-85af-4c54-af27-4948d893263d" />
+
+### Velocity Anomaly
+---
+<img width="1917" height="918" alt="{108E0A6A-82D3-409B-90A0-42A3543B57F6}" src="https://github.com/user-attachments/assets/fea7a91d-76e4-4895-87d9-f2687ae67773" />
 
 ### Prompt Injection in Alert
 ---
-<img width="1911" height="891" alt="{1820E5BD-65F9-4DB6-ADEE-7E7CC555D31E}" src="https://github.com/user-attachments/assets/b9654941-fba0-4cc0-b171-ad1ea69e9d56" />
+<img width="1916" height="918" alt="{DA611F9E-DC99-4DD0-8F87-3B05F18EB72B}" src="https://github.com/user-attachments/assets/6f1679fd-4596-40e1-a285-6ce14ae4a3cf" />
+
 
 ## Narrative
 Argos had a hundred eyes. Some slept while others watched. He was eventually
