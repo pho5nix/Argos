@@ -21,8 +21,7 @@ investigation bottleneck. That's the entire product.
 ## Why this exists
 
 Legacy transaction-monitoring systems run at roughly 95% false-positive rates.
-A major bank might investigate 50,000 alerts a year, 47,500 of them false, at
-$500–$1,500 per investigation. The average investigation time has ballooned to
+A major bank might investigate 50,000 alerts a year, 47,500 of them false.The average investigation time has ballooned to
 over four days. FinCEN data shows large institutions average **166 days** to
 file a SAR against a **30-day** regulatory requirement.
 
@@ -36,7 +35,7 @@ cases that actually need human judgment.
 
 If Argos does not move these three numbers in your pilot, it has failed:
 
-1. **Cost per alert** - target: $15–$40 (from the industry baseline of $500–$1,500)
+1. **Cost per alert** - target: $15–$40
 2. **Time to disposition** - target: under 30 min for escalations, under 2 min for dismissals (from ~4 days)
 3. **Time to SAR filing** - target: within the 30-day statutory ceiling (from the 166-day average)
 
