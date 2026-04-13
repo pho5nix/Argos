@@ -31,16 +31,6 @@ writing narratives from scratch, for cases that 90%+ of the time turn out to be
 nothing. Argos eliminates the gather-and-draft work so analysts only touch the
 cases that actually need human judgment.
 
-## The three numbers
-
-If Argos does not move these three numbers in your pilot, it has failed:
-
-1. **Cost per alert** - target: $15–$40
-2. **Time to disposition** - target: under 30 min for escalations, under 2 min for dismissals (from ~4 days)
-3. **Time to SAR filing** - target: within the 30-day statutory ceiling (from the 166-day average)
-
----
-
 ## Quickstart (under 5 minutes)
 
 You need: Docker, Docker Compose, 16GB of free RAM, and about 10GB of disk for
