@@ -14,7 +14,7 @@ package to a human reviewer.
 
 ```
 ┌──────────────────────┐     ┌─────────┐     ┌──────────────────────┐
-│  Monitoring system   │────▶│  Argos  │────▶│  Case management    │
+│  Monitoring system   │────▶│  Argos │────▶│  Case management     │
 │  (Actimize, SAS,     │     │         │     │  (TheHive, custom,   │
 │   Verafin, homegrown)│     │         │     │   etc.)              │
 └──────────────────────┘     └─────────┘     └──────────────────────┘
@@ -62,7 +62,7 @@ with exactly six nodes and one conditional edge.
        └─────────┘                  │
             │                       │
             ▼                       │
-       ┌─────────┐ ◀────── ─────────┘
+       ┌─────────┐ ◀───────────────┘
        │ handoff │
        └─────────┘
             │
