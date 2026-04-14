@@ -605,12 +605,31 @@ talk.
 
 ## Sources for the numbers cited
 
-* **False positive rates** — [Datos Insights on the OCC Model Risk Management Handbook](https://datos-insights.com/blog/are-you-too-negative-about-false-positives/) · [Facctum AML False Positive Rates Report 2026](https://www.facctum.com/blog/aml-false-positive-report) · [Flagright on transaction monitoring false positives](https://www.flagright.com/post/understanding-false-positives-in-transaction-monitoring) · [Unit21 on AML false positives](https://www.unit21.ai/blog/reduce-false-positives-in-aml-transaction-monitoring)
-* **SAR filing time** — [Bank Policy Institute Comment Letter to FinCEN, April 2024](https://bpi.com/wp-content/uploads/2024/04/BPI-Comment-Letter-FinCEN-SAR-PRA-Notice-4.12.24.pdf) (21.41 hours per SAR) · [ICBA Comment Letter, July 2024](https://www.icba.org/newsroom/news-and-articles/2024/07/02/icba-government-underestimates-suspicious-activity-reporting-burden) · [Retail Banker International / GlobalData, June 2025](https://www.retailbankerinternational.com/comment/hidden-cost-of-aml-how-false-positives-hurt-banks-fintechs-customers/) (up to 22 hours per alert)
-* **Compliance spend** — [LexisNexis True Cost of Financial Crime Compliance Study, US & Canada](https://risk.lexisnexis.com/insights-resources/research/true-cost-of-financial-crime-compliance-study-for-the-united-states-and-canada) ($61B) · [LexisNexis EMEA press release](https://risk.lexisnexis.com/global/en/about-us/press-room/press-release/20240306-true-cost-of-compliance-emea) ($85B) · [Napier AI summary of the global $214B figure](https://www.napier.ai/post/cost-of-aml-compliance)
-* **Law enforcement utility** — [Mayer Brown summary of the GAO CTR report and BPI SAR follow-up data](https://www.mayerbrown.com/en/insights/publications/2025/10/fincen-issues-request-for-information-on-aml-compliance-costs-is-the-juice-worth-the-squeeze)
-* **SAR filing latency** — [Sigma Ratings on the ICIJ FinCEN Files investigation](https://www.sigmaratings.com/knowledge-center/insights/the-fincen-files-sars) (166-day median; one bank averaging 1,200 days)
-* **Regulatory window** — [FinCEN SAR FAQs, October 9, 2025 (PDF)](https://www.fincen.gov/system/files/2025-10/SAR-FAQs-October-2025.pdf) · [Hurley ACAMS Conference remarks, September 17, 2025](https://home.treasury.gov/news/press-releases/sb0251) · [ABA Banking Journal coverage of the FAQ release](https://bankingjournal.aba.com/2025/10/fincen-releases-faq-on-suspicious-activity-reporting-requirements/)
+**False positive rates**:
+- [Datos Insights on the OCC Model Risk Management Handbook](https://datos-insights.com/blog/are-you-too-negative-about-false-positives/)
+- [Facctum AML False Positive Rates Report 2026](https://www.facctum.com/blog/aml-false-positive-report)
+- [Flagright on transaction monitoring false positives](https://www.flagright.com/post/understanding-false-positives-in-transaction-monitoring)
+- [Unit21 on AML false positives](https://www.unit21.ai/blog/reduce-false-positives-in-aml-transaction-monitoring)
+
+**SAR filing time**:
+- [Bank Policy Institute Comment Letter to FinCEN, April 2024](https://bpi.com/wp-content/uploads/2024/04/BPI-Comment-Letter-FinCEN-SAR-PRA-Notice-4.12.24.pdf) (21.41 hours per SAR)
+- [ICBA Comment Letter, July 2024](https://www.icba.org/newsroom/news-and-articles/2024/07/02/icba-government-underestimates-suspicious-activity-reporting-burden)
+- [Retail Banker International / GlobalData, June 2025](https://www.retailbankerinternational.com/comment/hidden-cost-of-aml-how-false-positives-hurt-banks-fintechs-customers/) (up to 22 hours per alert)
+
+**Compliance spend**:
+- [LexisNexis True Cost of Financial Crime Compliance Study, US & Canada](https://risk.lexisnexis.com/insights-resources/research/true-cost-of-financial-crime-compliance-study-for-the-united-states-and-canada) ($61B)
+- [LexisNexis EMEA press release](https://risk.lexisnexis.com/global/en/about-us/press-room/press-release/20240306-true-cost-of-compliance-emea) ($85B)
+- [Napier AI summary of the global $214B figure](https://www.napier.ai/post/cost-of-aml-compliance)
+**Law enforcement utility**:
+- [Mayer Brown summary of the GAO CTR report and BPI SAR follow-up data](https://www.mayerbrown.com/en/insights/publications/2025/10/fincen-issues-request-for-information-on-aml-compliance-costs-is-the-juice-worth-the-squeeze)
+
+**SAR filing latency**:
+- [Sigma Ratings on the ICIJ FinCEN Files investigation](https://www.sigmaratings.com/knowledge-center/insights/the-fincen-files-sars) (166-day median; one bank averaging 1,200 days)
+
+**Regulatory window**:
+- [FinCEN SAR FAQs, October 9, 2025 (PDF)](https://www.fincen.gov/system/files/2025-10/SAR-FAQs-October-2025.pdf)
+- [Hurley ACAMS Conference remarks, September 17, 2025](https://home.treasury.gov/news/press-releases/sb0251)
+- [ABA Banking Journal coverage of the FAQ release](https://bankingjournal.aba.com/2025/10/fincen-releases-faq-on-suspicious-activity-reporting-requirements/)
 
 ---
 
