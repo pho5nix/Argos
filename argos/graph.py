@@ -7,32 +7,25 @@ screen of code.
 
     START
       │
-      ▼
     intake
       │
-      ▼
     sanctions_check
       │
       ├─(primary hit)─────────────┐
-      │                           ▼
-      ▼                        handoff
+      │                        handoff
     behavioral_delta              │
-      │                           ▼
-      ▼                          END
+      │                          END
     package_evidence
       │
-      ▼
     reason
       │
-      ▼
     handoff
       │
-      ▼
      END
 
 The conditional edge after sanctions_check is the ONLY branching logic in
 the graph. It exists so that hard sanctions hits never reach the reasoning
-LLM — see docs/THREAT_MODEL.md for the rationale.
+LLM. See docs/THREAT_MODEL.md for the rationale.
 """
 
 from __future__ import annotations
