@@ -1,4 +1,4 @@
-// Argos demo — vanilla JS client.
+// Argos demo-vanilla JS client.
 //
 // No framework, no build step. Calls the three backend endpoints and
 // updates the three panes. The most interesting piece is the citation
